@@ -4,158 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyauw Room 聊天室 | 你的专属安心角落</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* 核心极简风格与柔和配色 */
         :root {
-            --bg-color: #FAF8F5; /* 温暖的奶白背景 */
-            --text-main: #333333; /* 柔和的深灰色字体，避免纯黑的刺眼 */
-            --accent-color: #8B6745; /* 柔和的木质/咖啡色 */
+            --bg-color: #F7F3F0; /* 极简暖沙色，类似纸张质感 */
+            --text-main: #3C3C3C; 
+            --accent-color: #7D6352; /* 深木色 */
             --box-bg: #FFFFFF;
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Noto Sans+SC', sans-serif;
         }
 
         body {
             margin: 0;
-            font-family: 'Helvetica Neue', Arial, 'Microsoft YaHei', sans-serif;
+            font-family: var(--font-sans);
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.8;
-            scroll-behavior: smooth; /* 平滑滚动效果 */
+            scroll-behavior: smooth;
         }
 
-        /* 导航栏 */
+        /* 导航栏 - 极致透明感 */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: rgba(247, 243, 240, 0.9);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         nav {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 25px 20px;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-style: italic;
             color: var(--accent-color);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .nav-links a {
-            margin-left: 30px;
+            margin-left: 35px;
             text-decoration: none;
             color: var(--text-main);
-            font-size: 16px;
-            transition: color 0.3s;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            opacity: 0.6;
         }
 
-        /* 通用区块设置 */
+        /* 通用布局 */
         section {
-            padding: 100px 20px;
-            max-width: 800px;
+            padding: 120px 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         h1, h2 {
-            font-weight: 500;
+            font-family: var(--font-serif);
+            font-weight: 400;
             color: var(--accent-color);
-            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 32px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
         }
 
-        p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* 首页 Hero Section */
+        /* 首页 Hero */
         #home {
-            height: 80vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            padding-top: 120px; /* 避开固定导航栏 */
         }
 
         #home h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
         .subtitle {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
             font-size: 18px;
-            transition: background-color 0.3s;
+            color: #888;
+            margin-bottom: 40px;
+            font-style: italic;
         }
 
-        .cta-button:hover {
-            background-color: #6d4f33;
-        }
-
-        /* 卡片设计 (用于听和说服务) */
+        /* 服务卡片 */
         .service-container {
             background-color: var(--box-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            margin-bottom: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
 
         .highlight-box {
-            background-color: rgba(139, 103, 69, 0.05);
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            margin-top: 30px;
+            border-top: 1px solid #EEE;
+            margin-top: 40px;
+            padding-top: 30px;
+            font-size: 15px;
+            color: #777;
         }
 
-        /* 底部版权 */
+        /* 预约系统容器 */
+        .calendar-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 75%; /* 保持 4:3 比例 */
+            background: #fff;
+            border: 1px solid #EAEAEA;
+        }
+
+        .calendar-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         footer {
             text-align: center;
-            padding: 40px 20px;
-            background-color: #EBE6DF;
-            font-size: 14px;
-            color: #666;
+            padding: 60px 20px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #999;
+            text-transform: uppercase;
         }
 
-        /* 手机端适配 */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* 手机端隐藏顶部链接，可自行扩展汉堡菜单 */
-            }
-            #home h1 {
-                font-size: 32px;
-            }
+            .nav-links { display: none; }
+            #home h1 { font-size: 36px; }
+            .calendar-wrapper { padding-top: 150%; /* 手机端拉长比例 */ }
         }
     </style>
 </head>
@@ -165,7 +166,6 @@
         <nav>
             <a href="#home" class="logo">Lyauw Room</a>
             <div class="nav-links">
-                <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#listen">Listen</a>
                 <a href="#talk">Talk</a>
@@ -176,60 +176,47 @@
 
     <section id="home">
         <h1>你的专属安心角落</h1>
-        <p class="subtitle">在拥挤且压抑的现代生活中，留白一段专属于你的时光。</p>
-        <p>有时候，你只是需要一个毫无顾忌的发泄口，或者一个能陪你理清思绪的客观声音。我们以人为本，用温暖的陪伴，为你提供最纯粹的「听」与「说」服务。</p>
-        <div style="margin-top: 30px;">
-            <a href="#booking" class="cta-button">预约专属时光</a>
-        </div>
+        <p class="subtitle">留白一段专属于你的时光</p>
+        <p>在 Lyauw Room，我们提供一个剥离社交压力的「第三空间」。无论你想倾诉还是理清思绪，这里只有真诚的陪伴，没有先入为主的评判。</p>
     </section>
 
     <section id="about">
-        <h2>重新定义「陪伴」，把人放在第一位</h2>
+        <h2>人与人的连接，本该温暖</h2>
         <div class="service-container">
-            <p>在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份人与人之间的温暖色彩。</p>
-            
+            <p>Lyauw Room 的诞生，是为了给这个世界增添一份人与人之间的温暖色彩。在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。</p>
             <div class="highlight-box">
-                <strong style="color: var(--accent-color);">【重要须知】</strong><br>
-                我们并不是专业的心理辅导机构，也没有接受过医疗或心理学相关的专业训练。请把我们当成你的<strong>「付费专属朋友」</strong>—— 一个完全客观、尊重你、且为你保密的倾诉对象。我们致力于提供一个基于相互尊重的专业环境，让你能安心地做回自己。
+                <strong>温馨提示</strong><br>
+                我们并非专业心理辅导机构。请将我们视为你的「付费专属朋友」—— 一个完全客观、保密且尊重你的倾诉对象。
             </div>
         </div>
     </section>
 
     <section id="listen">
-        <h2>听 · 纯粹的聆听，安全的出口</h2>
+        <h2>听 · 纯粹的聆听</h2>
         <div class="service-container">
-            <p>生活充满压力，但不是所有的话，都适合对身边的人说。</p>
-            <p>在这里，我们提供纯粹的「听」服务。因为我们完全游离在你的现实关系网之外，不认识你故事里的任何人，你可以绝对安心地倾吐所有的不满、压力和秘密。</p>
-            <ul style="color: #555;">
-                <li style="margin-bottom: 10px;"><strong>零评判：</strong> 我们只倾听，不对你的情绪和经历贴标签。</li>
-                <li style="margin-bottom: 10px;"><strong>绝对安全：</strong> 你的秘密止于这个房间，绝不会影响你原有的人际关系。</li>
-                <li><strong>彻底释放：</strong> 让你把憋在心里的话，痛快地说出来。</li>
-            </ul>
+            <p>生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐所有的不满、压力和秘密。</p>
+            <p>因为我们游离在你的现实关系网之外，所以你的话语在这里是绝对安全的。我们不予评判，只为你提供一个出口。</p>
         </div>
     </section>
 
     <section id="talk">
-        <h2>说 · 理清思绪，真诚陪伴</h2>
+        <h2>说 · 思绪的梳理</h2>
         <div class="service-container">
-            <p>有时候，脑海中的线团缠绕得太紧，你需要一个人帮你一起理清；又或者，你只是单纯地需要一个可以陪你聊聊天的声音。</p>
-            <p>我们的「说」服务专注于陪伴与梳理。我们<strong>不会</strong>干涉你的人生选择，也<strong>不会</strong>替你做任何决定。我们会作为你的专属朋友，提供客观的外部视角、分享不同的方法与意见，帮助你拨开迷雾，找回内心的平静与清晰。</p>
+            <p>有时候，你需要的不是答案，而是陪你一起理清线团的人。我们以朋友的身份，提供客观的外部视角和建议，陪你拨开迷雾。</p>
         </div>
     </section>
 
     <section id="booking">
-        <h2>开启你的专属时光</h2>
-        <div class="service-container" style="text-align: center;">
-            <p>为了确保彼此的舒适与尊重，我们的服务通常会安排在氛围轻松、环境安全的公共空间（例如安静的连锁咖啡厅），让你在最自然的状态下享受这段对话。</p>
-            
-            <div style="margin-top: 40px; padding: 20px; border: 2px dashed #ccc; border-radius: 8px; color: #999;">
-                <p><i>此处可嵌入你的 Google Forms 预约表单</i></p>
-                <p>要嵌入表单，请在 Google Forms 点击“发送” -> 选择“&lt;&gt;”图标获取代码 -> 将代码粘贴到这里替换此框。</p>
-            </div>
+        <h2>预约你的时光</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: #888;">请在下方日历中选择适合你的时间段进行预约。</p>
+        
+        <div class="calendar-wrapper">
+            <iframe src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" frameborder="0" scrolling="no"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Lyauw Room PLT. All rights reserved.</p>
+        &copy; 2026 Lyauw Room PLT. Bringing color to the world through radical empathy.
     </footer>
 
 </body>
