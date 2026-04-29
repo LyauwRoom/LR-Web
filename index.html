@@ -12,7 +12,7 @@
             --text-main: #3E2723;    /* 深咖啡色 */
             --accent-color: #C08261; /* 陶土红 / 琥珀金 */
             --white: #FFFFFF;
-            --font-logo: 'Dancing Script', cursive; /* 模拟 Logo 手写感 */
+            --font-logo: 'Dancing Script', cursive; 
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
         }
@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* 导航栏 - 高度优化 */
+        /* 导航栏 - 优化高度 */
         header {
             position: fixed;
             top: 0;
@@ -72,6 +72,7 @@
             border-radius: 20px;
             transition: 0.3s;
             font-weight: 600;
+            color: var(--text-main);
         }
         .lang-switch:hover { background: var(--text-main); color: var(--white); }
 
@@ -88,7 +89,6 @@
         }
         section.reveal { opacity: 1; transform: translateY(0); }
 
-        /* 字体策略应用 */
         h1 { font-family: var(--font-logo); font-weight: 400; color: var(--text-main); }
         h2 { font-family: var(--font-serif); font-weight: 400; font-size: 32px; text-align: center; margin-bottom: 40px; }
 
@@ -157,15 +157,15 @@
             z-index: 2000;
             text-decoration: none !important;
         }
-        .wa-float i { text-decoration: none; }
 
         /* 移动端优化 */
         @media (max-width: 768px) {
-            nav { height: 64px; } /* 高度减少 20% */
+            nav { height: 64px; } /* 减少 20% */
             .logo img { height: 35px; }
             .nav-links {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
                 background: var(--bg-color); flex-direction: column; padding: 30px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
             }
             .nav-links.active { display: flex; }
             .nav-links a { margin: 15px 0; margin-left: 0; }
@@ -185,9 +185,9 @@
             <a href="#home" class="logo"><img src="logo.png" alt="Lyauw Room"></a>
             <div class="nav-right">
                 <div class="nav-links" id="nav-list">
-                    <a href="#about" class="lang" data-cn="About" data-en="About">About</a>
-                    <a href="#services" class="lang" data-cn="Services" data-en="Services">Services</a>
-                    <a href="#booking" class="lang" data-cn="Booking" data-en="Booking">Booking</a>
+                    <a href="#about" class="lang" data-cn="关于" data-en="About">关于</a>
+                    <a href="#services" class="lang" data-cn="听/说" data-en="Listen/Talk">听/说</a>
+                    <a href="#booking" class="lang" data-cn="预约" data-en="Booking">预约</a>
                 </div>
                 <div class="lang-switch" onclick="toggleLanguage()">EN / 中</div>
                 <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
@@ -205,4 +205,82 @@
     </section>
 
     <section id="about">
-        <h2 class="lang" data-cn="人与人的连接，本该温暖" data-en="Human
+        <h2 class="lang" data-cn="人与人的连接，本该温暖" data-en="Human Connections">人与人的连接，本该温暖</h2>
+        <div class="service-container">
+            <p class="lang" data-cn="在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份温暖色彩。" 
+               data-en="In a fast-paced world, finding a place to lower your guard is rare. Lyauw Room exists to add warmth and color back into the human experience.">
+               在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份温暖色彩。
+            </p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="side-by-side">
+            <div class="side-item">
+                <h2 class="lang" data-cn="听 · 纯粹的聆听" data-en="Listen">听 · 纯粹的聆听</h2>
+                <div class="service-container">
+                    <p class="lang" data-cn="生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐秘密。我们游离在你的现实关系网之外，你的话语在这里是绝对安全的。" 
+                       data-en="Some words aren't meant for those close to you. Here, you can speak freely. Being outside your social circle, your privacy is our absolute priority.">
+                       生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐秘密。我们游离在你的现实关系网之外，你的话语在这里是绝对安全的。
+                    </p>
+                </div>
+            </div>
+            <div class="side-item">
+                <h2 class="lang" data-cn="说 · 思绪的梳理" data-en="Talk">说 · 思绪的梳理</h2>
+                <div class="service-container">
+                    <p class="lang" data-cn="有时候，你需要的不是答案，而是陪你一起理清线团的人。我们提供客观的视角，陪你拨开迷雾，找回内心的清晰。" 
+                       data-en="Sometimes you don't need answers, just someone to help untangle the threads. We offer an objective perspective to help you find inner clarity.">
+                       有时候，你需要的不是答案，而是陪你一起理清线团的人。我们提供客观的视角，陪你拨开迷雾，找回内心的清晰。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="booking-card">
+            <h2 class="lang" data-cn="开启你的专属时光" data-en="Book Your Time">开启你的专属时光</h2>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" 
+               target="_blank" class="booking-btn lang" data-cn="立即预约对话" data-en="Schedule Now">立即预约对话</a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/60122395001" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        &copy; 2026 LYAUW ROOM PLT. <br>
+        <span class="lang" data-cn="以人为本 · 极致共情" data-en="PEOPLE FIRST. RADICAL EMPATHY.">以人为本 · 极致共情</span>
+    </footer>
+
+    <script>
+        let currentLang = 'cn';
+        function toggleLanguage() {
+            currentLang = currentLang === 'cn' ? 'en' : 'cn';
+            document.querySelectorAll('.lang').forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        function toggleMenu() {
+            document.getElementById('nav-list').classList.toggle('active');
+        }
+
+        // 滚动显示动画
+        const revealSections = () => {
+            document.querySelectorAll('section').forEach(sec => {
+                const top = sec.getBoundingClientRect().top;
+                if (top < window.innerHeight - 80) sec.classList.add('reveal');
+            });
+        };
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+        // 点击链接自动收起菜单
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-list').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
