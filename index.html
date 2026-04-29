@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyauw Room | 你的专属安心角落</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #F5F5DC;      /* 暖沙色 */
             --text-main: #3E2723;    /* 深咖啡色 */
-            --accent-color: #C08261; /* 陶土红 */
+            --accent-color: #C08261; /* 陶土红 / 琥珀金 */
             --white: #FFFFFF;
+            --font-logo: 'Dancing Script', cursive; /* 模拟 Logo 手写感 */
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
         }
@@ -26,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* 导航栏 */
+        /* 导航栏 - 高度优化 */
         header {
             position: fixed;
             top: 0;
@@ -42,11 +43,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
+            padding: 0 25px;
             height: 80px; /* 桌面端高度 */
         }
 
-        .logo img { height: 50px; width: auto; }
+        .logo img { height: 50px; width: auto; display: block; }
 
         .nav-right { display: flex; align-items: center; }
         .nav-links { display: flex; align-items: center; }
@@ -54,31 +55,31 @@
             margin-left: 25px;
             text-decoration: none;
             color: var(--text-main);
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            font-size: 12px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 500;
+            transition: color 0.3s;
         }
+        .nav-links a:hover { color: var(--accent-color); }
 
-        /* 语言切换按钮 */
         .lang-switch {
             margin-left: 25px;
             cursor: pointer;
-            font-size: 12px;
-            border: 1px solid var(--accent-color);
-            padding: 4px 8px;
-            border-radius: 2px;
+            font-size: 11px;
+            border: 1px solid var(--text-main);
+            padding: 5px 10px;
+            border-radius: 20px;
             transition: 0.3s;
-            color: var(--accent-color);
             font-weight: 600;
         }
-        .lang-switch:hover { background: var(--accent-color); color: var(--white); }
+        .lang-switch:hover { background: var(--text-main); color: var(--white); }
 
-        .menu-toggle { display: none; font-size: 24px; cursor: pointer; margin-left: 15px; }
+        .menu-toggle { display: none; font-size: 22px; cursor: pointer; margin-left: 15px; }
 
-        /* 区块间距优化 (减少30%) */
+        /* 区块间距优化 */
         section {
-            padding: 90px 25px; /* 原为 140px, 减少后约 90px-100px */
+            padding: 80px 25px;
             max-width: 1100px;
             margin: 0 auto;
             opacity: 0;
@@ -87,16 +88,20 @@
         }
         section.reveal { opacity: 1; transform: translateY(0); }
 
-        h1, h2 { font-family: var(--font-serif); font-weight: 400; }
+        /* 字体策略应用 */
+        h1 { font-family: var(--font-logo); font-weight: 400; color: var(--text-main); }
+        h2 { font-family: var(--font-serif); font-weight: 400; font-size: 32px; text-align: center; margin-bottom: 40px; }
 
-        #home { height: 85vh; display: flex; flex-direction: column; justify-content: center; text-align: center; }
-        #home h1 { font-size: 48px; margin-bottom: 10px; }
+        #home { height: 80vh; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+        #home h1 { font-size: 64px; margin-bottom: 5px; }
+        .subtitle { font-size: 18px; font-family: var(--font-serif); font-style: italic; opacity: 0.7; margin-bottom: 40px; }
 
         /* 桌面端并排布局 */
         .side-by-side {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: stretch;
+            margin-top: 20px;
         }
         .side-item { flex: 1; }
 
@@ -104,34 +109,37 @@
             background-color: var(--white);
             padding: 40px;
             height: 100%;
-            border-left: 3px solid var(--accent-color);
-            box-shadow: 0 10px 30px rgba(62, 39, 35, 0.04);
+            border-top: 2px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(62, 39, 35, 0.03);
             transition: 0.4s;
         }
-        .service-container:hover { transform: translateY(-5px); }
+        .service-container:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(62, 39, 35, 0.06); }
 
         /* 预约区块 */
         .booking-card {
-            background-image: linear-gradient(rgba(245, 245, 220, 0.85), rgba(245, 245, 220, 0.85)), url('booking-bg.png');
+            background-image: linear-gradient(rgba(245, 245, 220, 0.88), rgba(245, 245, 220, 0.88)), url('booking-bg.png');
             background-size: cover;
-            padding: 80px 40px;
+            background-position: center;
+            padding: 100px 40px;
             text-align: center;
+            border-radius: 4px;
         }
 
         .booking-btn {
             display: inline-block;
-            margin-top: 25px;
-            padding: 18px 50px;
+            margin-top: 30px;
+            padding: 20px 60px;
             background-color: var(--text-main);
             color: var(--white);
             text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             transition: 0.3s;
         }
-        .booking-btn:hover { background-color: var(--accent-color); }
+        .booking-btn:hover { background-color: var(--accent-color); letter-spacing: 4px; }
 
-        /* WhatsApp 悬浮 (无下划线) */
+        /* WhatsApp (无下划线) */
         .wa-float {
             position: fixed;
             bottom: 30px;
@@ -145,28 +153,29 @@
             justify-content: center;
             align-items: center;
             font-size: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             z-index: 2000;
             text-decoration: none !important;
         }
+        .wa-float i { text-decoration: none; }
 
         /* 移动端优化 */
         @media (max-width: 768px) {
-            nav { height: 64px; } /* 减少 20% 高度 (80 * 0.8) */
+            nav { height: 64px; } /* 高度减少 20% */
             .logo img { height: 35px; }
             .nav-links {
                 display: none; position: absolute; top: 64px; left: 0; width: 100%;
-                background: var(--bg-color); flex-direction: column; padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+                background: var(--bg-color); flex-direction: column; padding: 30px 0;
             }
             .nav-links.active { display: flex; }
-            .nav-links a { margin: 15px 0; }
+            .nav-links a { margin: 15px 0; margin-left: 0; }
             .menu-toggle { display: block; }
             .side-by-side { flex-direction: column; }
-            #home h1 { font-size: 32px; }
+            #home h1 { font-size: 48px; }
+            section { padding: 60px 25px; }
         }
 
-        footer { text-align: center; padding: 60px 20px; font-size: 11px; opacity: 0.5; letter-spacing: 1px; }
+        footer { text-align: center; padding: 80px 20px; font-size: 11px; opacity: 0.5; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -176,9 +185,9 @@
             <a href="#home" class="logo"><img src="logo.png" alt="Lyauw Room"></a>
             <div class="nav-right">
                 <div class="nav-links" id="nav-list">
-                    <a href="#about" class="lang" data-cn="关于" data-en="About">关于</a>
-                    <a href="#services" class="lang" data-cn="服务" data-en="Services">服务</a>
-                    <a href="#booking" class="lang" data-cn="预约" data-en="Booking">预约</a>
+                    <a href="#about" class="lang" data-cn="About" data-en="About">About</a>
+                    <a href="#services" class="lang" data-cn="Services" data-en="Services">Services</a>
+                    <a href="#booking" class="lang" data-cn="Booking" data-en="Booking">Booking</a>
                 </div>
                 <div class="lang-switch" onclick="toggleLanguage()">EN / 中</div>
                 <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
@@ -187,86 +196,13 @@
     </header>
 
     <section id="home">
-        <h1 class="lang" data-cn="你的专属安心角落" data-en="Your Personal Sanctuary">你的专属安心角落</h1>
-        <p class="subtitle lang" data-cn="留白一段专属于你的时光" data-en="A space curated for your pause">留白一段专属于你的时光</p>
+        <h1 class="lang" data-cn="Lyauw Room" data-en="Lyauw Room">Lyauw Room</h1>
+        <p class="subtitle lang" data-cn="你的专属安心角落" data-en="Your Personal Sanctuary">你的专属安心角落</p>
         <p class="lang" data-cn="在 Lyauw Room，我们提供一个剥离社交压力的「第三空间」。这里只有真诚的陪伴，没有先入为主的评判。" 
-           data-en="At Lyauw Room, we provide a 'Third Space' free from social pressure. Here, you find genuine companionship without judgment.">
+           data-en="We provide a 'Third Space' free from social pressure. Here, you find genuine companionship without judgment.">
            在 Lyauw Room，我们提供一个剥离社交压力的「第三空间」。这里只有真诚的陪伴，没有先入为主的评判。
         </p>
     </section>
 
     <section id="about">
-        <h2 class="lang" data-cn="人与人的连接，本该温暖" data-en="Warm Human Connections">人与人的连接，本该温暖</h2>
-        <div class="service-container">
-            <p class="lang" data-cn="在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份温暖色彩。" 
-               data-en="In a fast-paced world, finding a place to lower your guard is rare. Lyauw Room exists to add warmth and color back into the human experience.">
-               在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份温暖色彩。
-            </p>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="side-by-side">
-            <div class="side-item">
-                <h2 class="lang" data-cn="听 · 纯粹的聆听" data-en="Listen · Pure Presence">听 · 纯粹的聆听</h2>
-                <div class="service-container">
-                    <p class="lang" data-cn="生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐秘密。我们游离在你的现实关系网之外，你的话语在这里是绝对安全的。" 
-                       data-en="Some words aren't meant for those close to you. Here, you can speak freely. Being outside your social circle, your privacy is our absolute priority.">
-                       生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐秘密。我们游离在你的现实关系网之外，你的话语在这里是绝对安全的。
-                    </p>
-                </div>
-            </div>
-            <div class="side-item">
-                <h2 class="lang" data-cn="说 · 思绪的梳理" data-en="Talk · Clarity Found">说 · 思绪的梳理</h2>
-                <div class="service-container">
-                    <p class="lang" data-cn="有时候，你需要的不是答案，而是陪你一起理清线团的人。我们以朋友的身份，提供客观的视角，陪你拨开迷雾，找回内心的清晰。" 
-                       data-en="Sometimes you don't need answers, just someone to help untangle the threads. We offer an objective perspective to help you find inner clarity.">
-                       有时候，你需要的不是答案，而是陪你一起理清线团的人。我们以朋友的身份，提供客观的视角，陪你拨开迷雾，找回内心的清晰。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="booking">
-        <div class="booking-card">
-            <h2 class="lang" data-cn="开启你的专属时光" data-en="Reserve Your Moment">开启你的专属时光</h2>
-            <p class="lang" data-cn="“每一次真诚的对话，都值得被认真对待。”" data-en="“Every genuine conversation deserves to be treated with care.”">“每一次真诚的对话，都值得被认真对待。”</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" 
-               target="_blank" class="booking-btn lang" data-cn="立即预约对话" data-en="Book A Session Now">立即预约对话</a>
-        </div>
-    </section>
-
-    <a href="https://wa.me/60122395001" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-    <footer>
-        &copy; 2026 LYAUW ROOM PLT. <br>
-        <span class="lang" data-cn="以人为本 · 极致共情" data-en="PEOPLE FIRST. RADICAL EMPATHY.">以人为本 · 极致共情</span>
-    </footer>
-
-    <script>
-        let currentLang = 'cn';
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'cn' ? 'en' : 'cn';
-            document.querySelectorAll('.lang').forEach(el => {
-                el.innerText = el.getAttribute(`data-${currentLang}`);
-            });
-        }
-
-        function toggleMenu() {
-            document.getElementById('nav-list').classList.toggle('active');
-        }
-
-        const revealSections = () => {
-            document.querySelectorAll('section').forEach(sec => {
-                const top = sec.getBoundingClientRect().top;
-                if (top < window.innerHeight - 100) sec.classList.add('reveal');
-            });
-        };
-
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('load', revealSections);
-    </script>
-</body>
-</html>
+        <h2 class="lang" data-cn="人与人的连接，本该温暖" data-en="Human
