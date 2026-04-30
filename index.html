@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyauw Room | 你的专属安心角落</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #F5F5DC;      /* 暖沙色 */
@@ -13,6 +13,7 @@
             --white: #FFFFFF;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
+            --font-cursive: 'Ma Shan Zheng', cursive; /* 书法/手写体 */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,23 +39,24 @@
             box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
 
-        .logo img { height: 40px; width: auto; display: block; }
+        .logo img { height: 42px; width: auto; display: block; }
         .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
 
         /* 1. 首页 Hero 区域 */
         .hero {
             padding: 100px 8% 80px;
             text-align: center;
-            background: linear-gradient(rgba(245,245,220,0.7), rgba(245,245,220,0.7)), url('booking-bg.png'); /* 建议此处换成阳光咖啡厅大图 */
+            background: linear-gradient(rgba(245,245,220,0.7), rgba(245,245,220,0.7)), url('booking-bg.png');
             background-size: cover;
             background-position: center;
         }
 
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             margin-bottom: 20px;
             font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .hero h2 {
@@ -62,6 +64,7 @@
             font-weight: 300;
             margin-bottom: 30px;
             opacity: 0.8;
+            letter-spacing: 1px;
         }
 
         .hero p {
@@ -71,23 +74,51 @@
             line-height: 1.8;
         }
 
-        /* 2. 关于我们 (白底强调) */
+        /* 2. 关于我们 (排版重点调整) */
         .about-section {
             background: var(--white);
-            padding: 80px 15%;
+            padding: 100px 15%;
             text-align: center;
         }
 
-        .about-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 30px; }
+        .about-header {
+            margin-bottom: 40px;
+        }
+
+        .about-header .line-1 {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .about-header .cursive-text {
+            font-family: var(--font-cursive);
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .about-header .line-2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            display: block;
+            opacity: 0.9;
+        }
+
         .disclaimer {
-            margin-top: 30px;
-            padding: 25px;
-            border: 1px solid #EEE;
+            margin-top: 40px;
+            padding: 30px;
+            border: 1px solid #F0F0F0;
             background: #FAFAFA;
             font-size: 0.95rem;
-            max-width: 800px;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
+            text-align: left;
+            line-height: 1.8;
         }
         .disclaimer b { color: var(--accent-color); }
 
@@ -95,8 +126,8 @@
         .services-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2px; /* 细微分割线感 */
-            background: #EEE; 
+            gap: 2px;
+            background: #F0F0F0; 
         }
 
         .service-box {
@@ -106,12 +137,12 @@
 
         .service-box h3 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-color); }
         .service-box ul { list-style: none; margin-top: 20px; }
-        .service-box ul li { margin-bottom: 10px; font-weight: 500; }
+        .service-box ul li { margin-bottom: 10px; font-weight: 500; font-size: 0.95rem; }
         .service-box ul li::before { content: "• "; color: var(--accent-color); }
 
         /* 5. 预约区域 */
         .booking-section {
-            padding: 80px 8%;
+            padding: 100px 8%;
             text-align: center;
         }
 
@@ -120,12 +151,13 @@
             margin-top: 30px;
             background: var(--text-main);
             color: var(--white);
-            padding: 15px 40px;
+            padding: 16px 45px;
             text-decoration: none;
             letter-spacing: 2px;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .booking-btn:hover { background: var(--accent-color); }
+        .booking-btn:hover { background: var(--accent-color); transform: translateY(-2px); }
 
         /* 页脚 */
         footer {
@@ -135,29 +167,36 @@
             border-top: 1px solid #EEE;
             font-size: 0.75rem;
             letter-spacing: 2px;
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
             .services-grid { grid-template-columns: 1fr; }
             .hero, .about-section, .service-box { padding: 60px 8%; }
+            .about-header .cursive-text { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><img src="logo.png" alt="Lyauw Room"></div>
+        <div class="logo">
+            <img src="logo.png" alt="Lyauw Room">
+        </div>
         <div class="nav-links"><a href="https://wa.me/60122395001">BOOKING</a></div>
     </nav>
 
     <header class="hero">
-        <h1>Lyauw Room 聊天室</h1>
+        <h1>Lyauw Room</h1>
         <h2>你的专属安心角落</h2>
         <p>在拥挤且压抑的现代生活中，留白一段专属于你的时光。有时候，你只是需要一个毫无顾忌的发泄口，或者一个能陪你理清思绪的客观声音。我们以人为本，用温暖的陪伴，为你提供最纯粹的「听」与「说」服务。</p>
     </header>
 
     <section class="about-section">
-        <h2>重新定义「陪伴」，把人放在第一位</h2>
+        <div class="about-header">
+            <span class="line-1">重新定义 <span class="cursive-text">陪伴</span></span>
+            <span class="line-2">把人放在第一位</span>
+        </div>
         <p>在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份人与人之间的温暖色彩。</p>
         <div class="disclaimer">
             <strong>【重要须知】</strong><br>
