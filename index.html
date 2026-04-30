@@ -3,197 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyauw Room | 听 · 说 · 空间</title>
+    <title>LYAUW ROOM | People First</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #F5F5DC;      /* 暖沙色 */
+            --bg-color: #F5F5DC;      /* 品牌暖沙色 */
             --text-main: #3E2723;    /* 深咖啡色 */
             --accent-color: #C08261; /* 陶土红 */
-            --white: #FFFFFF;        /* 纯白色 */
+            --white: #FFFFFF;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
         }
 
-        /* 1. 导航栏恢复：纯白 + 极简布局 */
+        /* 导航栏：已更新为纯白 */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 8%;
             height: 64px;
-            background: var(--white);
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 5px rgba(62, 39, 35, 0.05);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
 
-        .logo img { height: 42px; width: auto; display: block; }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
 
-        .nav-links { display: flex; align-items: center; }
-        
-        .lang-toggle {
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .lang-switch {
             cursor: pointer;
             font-size: 0.75rem;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            border: 1px solid var(--text-main);
-            padding: 5px 12px;
-            margin-right: 20px;
-            transition: 0.3s;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 2px;
         }
-        
-        .lang-toggle:hover { background: var(--text-main); color: var(--white); }
 
-        /* 2. Hero 区域：原始文字对齐逻辑 */
+        /* Hero 区域 */
         .hero {
-            padding: 120px 8% 80px;
-            max-width: 1000px;
+            padding: 120px 8% 100px;
+            max-width: 1200px;
         }
 
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.2;
-            margin-bottom: 30px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 40px;
             font-weight: 400;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            opacity: 0.85;
-        }
-
-        /* 3. 核心板块：并排布局 (桌面端并排，移动端垂直) */
-        .services-grid {
+        /* 服务展示板块：听与说并排 */
+        .split-section {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 并排布局 */
-            gap: 40px;
-            padding: 80px 8%;
-            background: var(--white); /* 服务区通常使用白底突出内容 */
+            grid-template-columns: 1fr 1fr;
+            background-color: var(--white);
+            min-height: 60vh;
         }
 
-        .service-box h2 {
+        .split-content {
+            padding: 100px 15%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-content:first-child {
+            border-right: 1px solid #F0F0F0;
+        }
+
+        .split-content h2 {
             font-family: var(--font-serif);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             color: var(--accent-color);
         }
 
-        .service-box p { font-size: 1rem; opacity: 0.8; }
-
-        /* 4. 页脚：恢复纯白极简 */
+        /* 页脚：已更新为纯白 */
         footer {
             background-color: var(--white);
+            padding: 80px 8%;
             text-align: center;
-            padding: 80px 20px;
-            font-size: 11px;
-            letter-spacing: 2px;
-            border-top: 1px solid #EEE;
+            border-top: 1px solid #F0F0F0;
         }
 
-        /* 响应式调整 */
+        .footer-text {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
         @media (max-width: 768px) {
-            .services-grid { grid-template-columns: 1fr; padding: 60px 8%; }
-            .hero { padding: 80px 8% 40px; }
-            .hero h1 { font-size: 2.2rem; }
-        }
-
-        /* WhatsApp 悬浮 */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            z-index: 2000;
-            text-decoration: none;
+            .split-section { grid-template-columns: 1fr; }
+            .split-content:first-child { border-right: none; border-bottom: 1px solid #F0F0F0; }
+            .hero { padding: 80px 8% 60px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">
-            <img src="logo.png" alt="Lyauw Room">
-        </a>
-        <div class="nav-links">
-            <div class="lang-toggle" onclick="toggleLanguage()">EN / 中</div>
-            <a href="https://wa.me/60122395001" style="text-decoration:none; color:inherit; font-size:0.8rem; letter-spacing:1px;">BOOKING</a>
+        <div class="logo">
+            <img src="logo.png" alt="LYAUW ROOM">
+        </div>
+        <div class="nav-right">
+            <div class="lang-switch" onclick="toggleLang()" id="langBtn">EN / 中</div>
         </div>
     </nav>
 
     <main>
         <section class="hero">
-            <h1 class="lang" 
-                data-cn="在这个喧嚣的世界，我们为您预留了一处静谧。" 
-                data-en="In this bustling world, we have reserved a quiet space for you.">
-                在这个喧嚣的世界，我们为您预留了一处静谧。
-            </h1>
-            <p class="lang"
-                data-cn="Lyauw Room 是一个独立于家庭与工作之外的“第三空间”。"
-                data-en="Lyauw Room is a 'Third Space' independent of home and work.">
-                Lyauw Room 是一个独立于家庭与工作之外的“第三空间”。
-            </p>
+            <h1 id="hero-title">在这个喧嚣的世界，<br>我们为您预留了一处静谧。</h1>
         </section>
 
-        <section class="services-grid">
-            <div class="service-box">
-                <h2 class="lang" data-cn="听 · Listen" data-en="Listen">听 · Listen</h2>
-                <p class="lang" 
-                   data-cn="提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。" 
-                   data-en="Providing the purest listening. Words unspoken to those around you find an echo here.">
-                   提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。
-                </p>
+        <section class="split-section">
+            <div class="split-content">
+                <h2 id="listen-title">听 · Listen</h2>
+                <p id="listen-desc">提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。</p>
             </div>
-            <div class="service-box">
-                <h2 class="lang" data-cn="说 · Talk" data-en="Talk">说 · Talk</h2>
-                <p class="lang" 
-                   data-cn="理清思绪，在共情中寻找答案。我们陪你拨开迷雾。" 
-                   data-en="Clarify your thoughts and find answers in empathy. We walk through the mist with you.">
-                   理清思绪，在共情中寻找答案。我们陪你拨开迷雾。
-                </p>
+            <div class="split-content">
+                <h2 id="talk-title">说 · Talk</h2>
+                <p id="talk-desc">理清思绪，在共情中寻找答案。我们陪你拨开迷雾，看见真实的自己。</p>
             </div>
         </section>
     </main>
 
     <footer>
-        &copy; 2026 LYAUW ROOM PLT. <br>
-        <span style="opacity: 0.5; display:block; margin-top:10px;">PEOPLE FIRST · RADICAL EMPATHY</span>
+        <div class="footer-text">
+            © 2026 LYAUW ROOM PLT · People First · Radical Empathy
+        </div>
     </footer>
 
-    <a href="https://wa.me/60122395001" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
-        let currentLang = 'cn';
-        function toggleLanguage() {
-            currentLang = currentLang === 'cn' ? 'en' : 'cn';
-            document.querySelectorAll('.lang').forEach(el => {
-                el.innerText = el.getAttribute(`data-${currentLang}`);
-            });
-            document.querySelector('.lang-toggle').innerText = currentLang === 'cn' ? 'EN / 中' : '中 / EN';
+        const content = {
+            zh: {
+                hero: "在这个喧嚣的世界，<br>我们为您预留了一处静谧。",
+                listenTitle: "听 · Listen",
+                listenDesc: "提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。",
+                talkTitle: "说 · Talk",
+                talkDesc: "理清思绪，在共情中寻找答案。我们陪你拨开迷雾，看见真实的自己。",
+                btn: "EN / 中"
+            },
+            en: {
+                hero: "In a world of noise, <br>we hold a space of silence for you.",
+                listenTitle: "Listen",
+                listenDesc: "Pure, non-judgmental listening. For the words you cannot say to those closest to you.",
+                talkTitle: "Talk",
+                talkDesc: "Clarify your thoughts and find clarity through radical empathy.",
+                btn: "中 / EN"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function toggleLang() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            const data = content[currentLang];
+            
+            document.getElementById('hero-title').innerHTML = data.hero;
+            document.getElementById('listen-title').innerText = data.listenTitle;
+            document.getElementById('listen-desc').innerText = data.listenDesc;
+            document.getElementById('talk-title').innerText = data.talkTitle;
+            document.getElementById('talk-desc').innerText = data.talkDesc;
+            document.getElementById('langBtn').innerText = data.btn;
         }
     </script>
 </body>
