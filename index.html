@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyauw Room | 你的专属安心角落</title>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #F5F5DC;      /* 暖沙色 */
@@ -13,7 +14,7 @@
             --white: #FFFFFF;
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
-            --font-cursive: 'Ma Shan Zheng', cursive; /* 书法/手写体 */
+            --font-cursive: 'Ma Shan Zheng', cursive; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,7 +80,7 @@
 
         .about-header { margin-bottom: 40px; }
         .about-header .line-1 { font-size: 2rem; display: block; margin-bottom: 5px; }
-        .about-header .line-1 .cursive { font-size: 1.8em; } /* 重新定义陪伴 特殊大小 */
+        .about-header .line-1 .cursive { font-size: 1.8em; } 
         .about-header .line-2 { font-size: 1.5rem; font-weight: 300; letter-spacing: 4px; opacity: 0.9; }
 
         .disclaimer {
@@ -139,8 +140,32 @@
             text-decoration: none;
             letter-spacing: 2px;
             transition: 0.3s;
+            font-weight: 500;
         }
         .booking-btn:hover { background: var(--accent-color); transform: translateY(-3px); }
+
+        /* WhatsApp 悬浮按钮样式 */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 2000;
+            transition: all 0.3s ease;
+        }
+        .wa-float:hover {
+            transform: scale(1.1);
+            background-color: #20b358;
+        }
 
         /* 页脚 */
         footer {
@@ -156,6 +181,7 @@
             .service-row, .service-row:nth-child(even) { flex-direction: column; }
             .service-image { min-height: 300px; }
             .about-section { padding: 80px 8%; }
+            .wa-float { width: 50px; height: 50px; font-size: 26px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -163,7 +189,9 @@
 
     <nav>
         <div class="logo"><img src="logo.png" alt="Lyauw Room"></div>
-        <div class="nav-links"><a href="https://wa.me/60122395001">BOOKING</a></div>
+        <div class="nav-links">
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true">立即预约</a>
+        </div>
     </nav>
 
     <header class="hero">
@@ -213,8 +241,12 @@
     <section class="booking-section">
         <h2>开启你的专属时光</h2>
         <p>为了确保彼此的舒适与尊重，我们的服务通常会安排在氛围轻松、环境安全的公共空间（例如安静的连锁咖啡厅），让你在最自然的状态下享受这段对话。</p>
-        <a href="https://wa.me/60122395001" class="booking-btn">立即通过 WhatsApp 预约</a>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" class="booking-btn">选择时间段开启预约</a>
     </section>
+
+    <a href="https://wa.me/60122395001" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
         &copy; 2026 LYAUW ROOM PLT · PEOPLE FIRST · RADICAL EMPATHY
