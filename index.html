@@ -3,237 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyauw Room | 你的专属安心角落</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Lyauw Room | 听 · 说 · 空间</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            /* 品牌核心色彩指南 V3 */
-            --bg-color: #F5F5DC;      /* 暖沙色: 环境与呼吸 */
-            --text-main: #3E2723;    /* 深咖啡色: 专业与边界 */
-            --accent-color: #C08261; /* 陶土红: 人际关系与脉搏 */
+            --bg-color: #F5F5DC;      /* 暖沙色 */
+            --text-main: #3E2723;    /* 深咖啡色 */
+            --accent-color: #C08261; /* 陶土红 */
             --white: #FFFFFF;        /* 纯白色 */
-            --font-logo: 'Dancing Script', cursive; 
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.8;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* 导航栏：纯白色背景优化 */
+        /* 1. 导航栏恢复：纯白 + 极简布局 */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 8%;
-            height: 64px; 
-            background: var(--white); 
+            height: 64px;
+            background: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 5px rgba(62, 39, 35, 0.05); 
+            box-shadow: 0 1px 5px rgba(62, 39, 35, 0.05);
         }
 
-        .logo img {
-            height: 42px;
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 42px; width: auto; display: block; }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 30px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .cta-btn {
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 10px 22px;
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .nav-links { display: flex; align-items: center; }
+        
+        .lang-toggle {
             cursor: pointer;
-            margin-left: 30px;
-            font-size: 0.8rem;
-            transition: all 0.3s;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--text-main);
+            padding: 5px 12px;
+            margin-right: 20px;
+            transition: 0.3s;
         }
+        
+        .lang-toggle:hover { background: var(--text-main); color: var(--white); }
 
-        .cta-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-1px);
-        }
-
-        /* Hero 沉浸式区域 */
+        /* 2. Hero 区域：原始文字对齐逻辑 */
         .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 15%;
-            background: linear-gradient(rgba(245,245,220,0.85), rgba(245,245,220,0.85)), url('booking-bg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            padding: 120px 8% 80px;
+            max-width: 1000px;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-family: var(--font-serif);
-            font-size: 3.2rem;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.2;
+            margin-bottom: 30px;
             font-weight: 400;
         }
 
-        .hero-content h1 em {
-            font-family: var(--font-logo);
-            font-style: normal;
-            font-size: 3.8rem;
-            display: block;
-            margin-top: 10px;
-            color: var(--text-main);
-        }
-
-        .hero-content p {
-            font-size: 1.15rem;
-            margin-bottom: 45px;
-            font-style: italic;
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
             opacity: 0.85;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* 视频/视觉占位符 */
-        .video-container {
-            width: 100%;
-            max-width: 800px;
-            aspect-ratio: 16 / 9;
-            background: var(--text-main);
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 40px 80px rgba(62, 39, 35, 0.12);
-            background-image: url('booking-bg.png');
-            background-size: cover;
-            background-blend-mode: multiply;
+        /* 3. 核心板块：并排布局 (桌面端并排，移动端垂直) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 并排布局 */
+            gap: 40px;
+            padding: 80px 8%;
+            background: var(--white); /* 服务区通常使用白底突出内容 */
         }
 
-        .play-icon {
-            width: 75px;
-            height: 75px;
-            border: 1px solid var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-        }
-
-        .play-icon:hover {
-            transform: scale(1.1);
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        /* 品牌理念与背书区域 */
-        .social-proof {
-            padding: 70px 0;
-            background: var(--white);
-            text-align: center;
-        }
-
-        .social-proof p {
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            margin-bottom: 35px;
-            color: #AAA;
-            font-weight: 600;
-        }
-
-        .logo-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            opacity: 0.45;
+        .service-box h2 {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
-            filter: grayscale(100%);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
         }
 
-        /* 页脚：纯白色背景优化 */
+        .service-box p { font-size: 1rem; opacity: 0.8; }
+
+        /* 4. 页脚：恢复纯白极简 */
         footer {
-            background-color: var(--white); 
+            background-color: var(--white);
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             font-size: 11px;
             letter-spacing: 2px;
-            color: var(--text-main);
-            border-top: 1px solid #EEE; 
+            border-top: 1px solid #EEE;
         }
 
-        /* WhatsApp 悬浮按钮 */
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; padding: 60px 8%; }
+            .hero { padding: 80px 8% 40px; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+
+        /* WhatsApp 悬浮 */
         .wa-float {
             position: fixed;
-            bottom: 35px;
-            right: 35px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 30px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            font-size: 24px;
             z-index: 2000;
             text-decoration: none;
-            transition: 0.3s;
-        }
-        .wa-float:hover { transform: scale(1.1); }
-
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            nav { height: 60px; padding: 0 5%; background: var(--white); }
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-content h1 em { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .hero { padding: 60px 8%; }
-            .logo-grid { gap: 30px; font-size: 1rem; flex-wrap: wrap; padding: 0 20px; }
         }
     </style>
 </head>
@@ -241,51 +135,66 @@
 
     <nav>
         <a href="#" class="logo">
-            <img src="logo.png" alt="Lyauw Room Logo">
+            <img src="logo.png" alt="Lyauw Room">
         </a>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#listen">Listen</a>
-            <a href="#talk">Talk</a>
-            <button class="cta-btn">立即预约</button>
+            <div class="lang-toggle" onclick="toggleLanguage()">EN / 中</div>
+            <a href="https://wa.me/60122395001" style="text-decoration:none; color:inherit; font-size:0.8rem; letter-spacing:1px;">BOOKING</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>在这个喧嚣的世界 <br><em>我们静静聆听。</em></h1>
-            <p>
-                提供一个独立于家庭与工作之外的“第三空间”。在这里，只有真诚的陪伴，没有先入为主的评判。
+    <main>
+        <section class="hero">
+            <h1 class="lang" 
+                data-cn="在这个喧嚣的世界，我们为您预留了一处静谧。" 
+                data-en="In this bustling world, we have reserved a quiet space for you.">
+                在这个喧嚣的世界，我们为您预留了一处静谧。
+            </h1>
+            <p class="lang"
+                data-cn="Lyauw Room 是一个独立于家庭与工作之外的“第三空间”。"
+                data-en="Lyauw Room is a 'Third Space' independent of home and work.">
+                Lyauw Room 是一个独立于家庭与工作之外的“第三空间”。
             </p>
-            
-            <div class="video-container">
-                <div class="play-icon">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </header>
+        </section>
 
-    <section class="social-proof">
-        <p>PEOPLE FIRST · RADICAL EMPATHY</p>
-        <div class="logo-grid">
-            <span>Authenticity</span>
-            <span>Respect</span>
-            <span>Security</span>
-            <span>Warmth</span>
-        </div>
-    </section>
+        <section class="services-grid">
+            <div class="service-box">
+                <h2 class="lang" data-cn="听 · Listen" data-en="Listen">听 · Listen</h2>
+                <p class="lang" 
+                   data-cn="提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。" 
+                   data-en="Providing the purest listening. Words unspoken to those around you find an echo here.">
+                   提供最纯粹的倾听。那些不便对身边人说的话，在这里都有回响。
+                </p>
+            </div>
+            <div class="service-box">
+                <h2 class="lang" data-cn="说 · Talk" data-en="Talk">说 · Talk</h2>
+                <p class="lang" 
+                   data-cn="理清思绪，在共情中寻找答案。我们陪你拨开迷雾。" 
+                   data-en="Clarify your thoughts and find answers in empathy. We walk through the mist with you.">
+                   理清思绪，在共情中寻找答案。我们陪你拨开迷雾。
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 LYAUW ROOM PLT. <br>
+        <span style="opacity: 0.5; display:block; margin-top:10px;">PEOPLE FIRST · RADICAL EMPATHY</span>
+    </footer>
 
     <a href="https://wa.me/60122395001" class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <footer>
-        &copy; 2026 LYAUW ROOM PLT. <br>
-        <span style="opacity: 0.6; margin-top: 10px; display: block;">以人为本 · 极致共情</span>
-    </footer>
-
+    <script>
+        let currentLang = 'cn';
+        function toggleLanguage() {
+            currentLang = currentLang === 'cn' ? 'en' : 'cn';
+            document.querySelectorAll('.lang').forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
+            document.querySelector('.lang-toggle').innerText = currentLang === 'cn' ? 'EN / 中' : '中 / EN';
+        }
+    </script>
 </body>
 </html>
