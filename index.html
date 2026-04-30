@@ -8,35 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            /* 基础色调 */
-            --bg-sand: #F5F5DC;      /* 品牌暖沙色 */
-            --text-main: #3E2723;    /* 深咖啡色 */
+            [span_3](start_span)/* 严格遵循品牌手册 V5 色彩规范[span_3](end_span) */
+            --bg-sand: #F5F5DC;      [span_4](start_span)/* 暖沙色: 环境与呼吸[span_4](end_span) */
+            --text-dark: #3E2723;    [span_5](start_span)/* 深咖啡色: 专业与边界[span_5](end_span) */
+            --accent-clay: #C08261;  [span_6](start_span)/* 陶土红: 人际关系与脉搏[span_6](end_span) */
             --white: #FFFFFF;
             
-            /* v1.1.04 核心色彩更新：Lyauw Theme Green (深绿) */
-            --bg-dark-green: #1B5E20; /* 深度绿：提供高对比度与专业感 */
-            
-            /* 强调色与卡片 */
-            --accent-clay: #C08261;  /* 陶土红 (用于书法体强调) */
-            --card-bg-light: #FFFBF7; /* 卡片浅底色 */
-            
-            /* 字体定义 */
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
-            --font-cursive: 'Ma Shan Zheng', cursive; 
+            [span_7](start_span)/* 字体定义[span_7](end_span) */
+            --font-serif: 'Playfair Display', serif; [span_8](start_span)/* 副标题[span_8](end_span) */
+            --font-sans: 'Inter', sans-serif;         [span_9](start_span)/* 正文[span_9](end_span) */
+            --font-cursive: 'Ma Shan Zheng', cursive; [span_10](start_span)/* 核心语录/标题延伸[span_10](end_span) */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-sand); /* 页面基础背景仍为暖沙色 */
-            color: var(--text-main);
+            background-color: var(--bg-sand);
+            color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* 文字样式 */
+        [span_11](start_span)/* 书法体强调[span_11](end_span) */
         .cursive { font-family: var(--font-cursive); color: var(--accent-clay); font-size: 1.2em; vertical-align: middle; }
         .cursive-bold { font-family: var(--font-cursive); color: var(--accent-clay); font-weight: bold; font-size: 1.4em; margin-right: 8px; vertical-align: middle; }
 
@@ -51,12 +45,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.02);
         }
         .logo img { height: 42px; width: auto; display: block; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
 
-        /* 1. Hero 区域 (保持原样) */
+        /* 1. Hero 区域 */
         .hero {
             padding: 120px 8% 100px;
             text-align: center;
@@ -66,44 +59,41 @@
         }
         .hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; font-weight: 700; }
         .hero h2 { font-size: 1.2rem; font-weight: 300; margin-bottom: 40px; opacity: 0.8; }
-        .hero p { max-width: 800px; margin: 0 auto; font-size: 1.05rem; }
 
-        /* --- 2. 关于我们 (优化为深绿全宽背景) --- */
+        /* --- 2. 关于我们 (全宽深咖啡色背景以增加对比度) --- */
         .about-section { 
-            background: var(--bg-dark-green); /* 应用深绿背景 */
+            background: var(--text-dark); [span_12](start_span)/* 使用手册中的深咖啡色[span_12](end_span) */
             padding: 100px 10%; 
             text-align: center; 
-            width: 100vw; /* 强制全宽 */
+            width: 100vw; 
             position: relative;
             left: 50%;
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            color: var(--white); /* 文字切换为白色以保对比度 */
+            color: var(--bg-sand); [span_13](start_span)/* 文字使用暖沙色以保对比与温润感[span_13](end_span) */
         }
         
-        .about-header { margin-bottom: 40px; line-height: 1.2; }
+        .about-header { margin-bottom: 40px; line-height: 1.1; } /* 缩小行间距 */
         .about-header .line { font-size: 1.8rem; display: block; margin-bottom: 5px; letter-spacing: 2px; }
-        .about-header .cursive { color: var(--accent-clay); } /* 书法体仍保留陶土红 */
 
         .disclaimer {
             margin-top: 50px;
             padding: 35px;
-            background: rgba(255, 255, 255, 0.05); /* 声明框采用微透明白色 */
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(245, 245, 220, 0.05); /* 微透明暖沙色背景 */
+            border: 1px solid rgba(245, 245, 220, 0.1);
             text-align: left;
             max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--white);
+            margin: 50px auto 0;
+            color: var(--bg-sand);
         }
-        .disclaimer strong { color: var(--accent-clay); } /* 强调文字 */
+        .disclaimer strong { color: var(--accent-clay); } 
 
-        /* --- 3. 服务板块 (优化为深绿全宽背景) --- */
+        /* --- 3. 服务板块 (全宽深咖啡色背景) --- */
         .services-container {
-            background: var(--bg-dark-green); /* 应用深绿背景 */
+            background: var(--text-dark);
             padding: 80px 10%;
-            width: 100vw; /* 强制全宽 */
+            width: 100vw;
             position: relative;
             left: 50%;
             right: 50%;
@@ -117,16 +107,12 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 100px;
-            gap: 40px; /* 增加间距 */
+            gap: 40px;
         }
 
         .service-row:nth-child(even) { flex-direction: row-reverse; }
 
-        .service-image-container {
-            flex: 1.2;
-            min-width: 350px; 
-        }
-
+        .service-image-container { flex: 1.2; min-width: 350px; }
         .service-image-container img {
             width: 100%;
             height: 450px;
@@ -138,56 +124,54 @@
         .service-content-card {
             flex: 1;
             min-width: 350px;
-            background: var(--card-bg-light); /* 卡片保持浅色以便阅读 */
+            background: var(--bg-sand); [span_14](start_span)/* 卡片回归暖沙色[span_14](end_span) */
             padding: 60px 50px;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.2); /* 调整投影颜色以适应深色背景 */
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.3); /* 深色投影增强对比 */
             border: 1px solid rgba(0,0,0,0.03);
+            color: var(--text-dark);
         }
 
         .service-content-card h3 { 
             font-family: var(--font-serif); 
             font-size: 2.2rem; 
             margin-bottom: 25px; 
-            color: var(--text-main); /* 卡片内文字保持深咖啡色 */
             font-weight: 400; 
         }
 
         .service-content-card ul { list-style: none; margin-top: 25px; }
-        .service-content-card ul li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; color: var(--text-main); }
         .service-content-card ul li::before { 
             content: ""; width: 8px; height: 8px; background: var(--accent-clay); margin-right: 12px; border-radius: 50%;
         }
 
-        /* 移动端排版调整 */
+        /* 移动端适配 */
         @media (max-width: 768px) {
             .about-section, .services-container {
                 width: 100%; margin-left: 0; margin-right: 0; left: 0; right: 0; padding: 60px 5%;
             }
-            .service-row, .service-row:nth-child(even) { flex-direction: column !important; margin-bottom: 60px; }
-            .service-image-container img { height: 300px; border-radius: 40px 0 40px 0; }
-            .service-content-card { margin-top: -40px; width: 92%; padding: 40px 25px; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); z-index: 2; }
+            .service-row, .service-row:nth-child(even) { flex-direction: column !important; }
+            .service-content-card { margin-top: -40px; width: 92%; z-index: 2; }
             .about-header .line { font-size: 1.5rem; }
         }
 
-        /* 5. 预约区域 (保持原样) */
+        /* 5. 预约区域 */
         .booking-section { padding: 100px 8%; text-align: center; background: var(--bg-sand); }
         .booking-btn {
             display: inline-block;
             margin-top: 40px;
-            background: var(--text-main);
-            color: var(--white);
+            background: var(--text-dark);
+            color: var(--bg-sand);
             padding: 18px 50px;
             text-decoration: none;
             letter-spacing: 2px;
             font-weight: 500;
         }
 
-        /* WhatsApp */
+        [span_15](start_span)/* WhatsApp 规范：无边框、无下划线[span_15](end_span) */
         .wa-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25D366;
+            background-color: #25D366; /* WhatsApp 官方绿 */
             color: white;
             width: 60px; height: 60px;
             border-radius: 50%;
@@ -196,7 +180,7 @@
             align-items: center;
             font-size: 32px;
             z-index: 2000;
-            text-decoration: none;
+            text-decoration: none; [span_16](start_span)/* 确保无下划线[span_16](end_span) */
         }
 
         footer { background: var(--white); padding: 60px 20px; text-align: center; border-top: 1px solid #EEE; font-size: 0.75rem; letter-spacing: 2px; }
@@ -214,7 +198,7 @@
     <header class="hero">
         <h1>Lyauw Room</h1>
         <h2>你的专属安心角落</h2>
-        <p>在拥挤且压抑的现代生活中，留白一段专属于你的时光。有时候，你只是需要一个毫无顾忌的发泄口，或者一个能陪你理清思绪的客观声音。我们以人为本，用温暖的陪伴，为你提供最纯粹的<span class="cursive">听</span>与<span class="cursive">说</span>服务。</p>
+        [span_17](start_span)[span_18](start_span)<p>在拥挤且压抑的现代生活中，留白一段专属于你的时光。基于“以人为本”原则，我们为你提供极致共情的<span class="cursive">听</span>与<span class="cursive">说</span>服务[span_17](end_span)[span_18](end_span)。</p>
     </header>
 
     <section class="about-section">
@@ -222,40 +206,40 @@
             <span class="line">重新定义<span class="cursive">陪伴</span></span>
             <span class="line">把人放在第一位</span>
         </div>
-        <p>在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份人与人之间的温暖色彩。</p>
+        [span_19](start_span)<p>我们提供一个“第三空间”——一个独立于家庭与工作之外的避风港[span_19](end_span)。</p>
         <div class="disclaimer">
             <strong>【重要须知】</strong><br>
-            我们并不是专业的心理辅导机构，也没有接受过医疗或心理学相关的专业训练。请把我们当成你的<span class="cursive">付费专属朋友</span> —— 一个完全客观、尊重你、且为你保密的倾诉对象。我们致力于提供一个基于相互尊重的专业环境，让你能安心地做回自己。
+            我们并不是专业的心理辅导机构。请把我们当成你的<span class="cursive">付费专属朋友</span> —— 一个完全客观、尊重你、且为你保密的倾诉对象。
         </div>
     </section>
 
     <section class="services-container">
         <div class="service-row">
             <div class="service-image-container">
-                <img src="booking-bg.png" alt="Pure Listening">
+                <img src="booking-bg.png" alt="The Listening Room">
             </div>
             <div class="service-content-card">
-                <h3><span class="cursive-bold">听</span> · 纯粹的聆听</h3>
-                <p>生活充满压力，但不是所有的话，都适合对身边的人说。在这里，我们提供纯粹的<span class="cursive">听</span>服务。因为我们完全游离在你的关系网之外，不认识你故事里的任何人，你可以绝对安心地倾吐所有的不满、压力和秘密。</p>
+                <h3><span class="cursive-bold">听</span> · 倾听室</h3>
+                [span_20](start_span)<p>有时候，您需要的不是建议，而是一个听众[span_20](end_span)[span_21](start_span)。在宁静中找回自我，由我们为您留出思考的余地[span_21](end_span)。</p>
                 <ul>
-                    <li>零评判：不贴标签。</li>
-                    <li>绝对安全：秘密止于此。</li>
-                    <li>彻底释放：痛快地说出来。</li>
+                    [span_22](start_span)<li>零评判：专业且不带批判色彩的伙伴[span_22](end_span)。</li>
+                    <li>绝对安全：你的秘密止于这个房间。</li>
+                    [span_23](start_span)<li>找回清晰：在宁静中找回自我[span_23](end_span)。</li>
                 </ul>
             </div>
         </div>
 
         <div class="service-row">
             <div class="service-image-container">
-                <img src="booking-bg.png" alt="Genuine Talk">
+                <img src="booking-bg.png" alt="The Dialogue Space">
             </div>
             <div class="service-content-card">
-                <h3><span class="cursive-bold">说</span> · 理清思绪</h3>
-                <p>我们会作为你的专属朋友，提供客观的外部视角、分享不同的方法与意见，帮助你拨开迷雾，找回内心的平静与清晰。</p>
+                <h3><span class="cursive-bold">说</span> · 对话空间</h3>
+                [span_24](start_span)<p>在对话中寻获清晰[span_24](end_span)[span_25](start_span)。通过深度对话协助您应对职业障碍、个人转型或创意瓶颈[span_25](end_span)。</p>
                 <ul>
-                    <li>专属朋友：客观视角。</li>
-                    <li>真诚陪伴：找回平静。</li>
-                    <li>不作代领：尊重选择。</li>
+                    [span_26](start_span)<li>理清思绪：协助您整理思路[span_26](end_span)。</li>
+                    [span_27](start_span)<li>寻获色彩：找回叙述中的“色彩”[span_27](end_span)。</li>
+                    [span_28](start_span)<li>行动动力：将碎散思绪转化为动力[span_28](end_span)。</li>
                 </ul>
             </div>
         </div>
@@ -263,7 +247,6 @@
 
     <section class="booking-section">
         <h2>开启你的专属时光</h2>
-        <p>为了确保彼此的舒适与尊重，我们的服务通常会安排在氛围轻松、环境安全的公共空间（例如安静的连锁咖啡厅），让你在最自然的状态下享受这段对话。</p>
         <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" class="booking-btn">选择时间段开启预约</a>
     </section>
 
@@ -272,7 +255,7 @@
     </a>
 
     <footer>
-        &copy; 2026 LYAUW ROOM PLT · PEOPLE FIRST · RADICAL EMPATHY
+        &copy; [span_29](start_span)[span_30](start_span)2026 LYAUW ROOM PLT · PEOPLE FIRST · RADICAL EMPATHY[span_29](end_span)[span_30](end_span)
     </footer>
 
 </body>
